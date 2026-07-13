@@ -17,7 +17,14 @@ import {
 
 const SUPABASE_URL = "https://ategpcynydszerhioegq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_wftKjFv9FXQEe1obFruNxg_kdTdAqnu";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: false,
+    storageKey: "powerade-auth",
+  },
+});
 
 const TOTAL_WEEKS = 13;
 const TOTAL_DAYS = TOTAL_WEEKS * 7;
